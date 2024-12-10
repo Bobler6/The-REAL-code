@@ -25,7 +25,7 @@ class Colors:
 
 @bot.event
 async def on_member_join(member):
-    channel = bot.get_channel(1241861618816782457)
+    channel = bot.get_channel()#put your welcome channel id here
     await channel.send(f'{member.mention}')
     embed = discord.Embed(title="Hey buddy!", description=f"{member.mention} just entered the park.")
     await channel.send(embed=embed)
@@ -33,7 +33,7 @@ async def on_member_join(member):
 
 @bot.event
 async def on_member_remove(member):
-    channel = bot.get_channel(1244790725808492564)
+    channel = bot.get_channel()#put your leave channel id here
     embed = discord.Embed(title="Cya buddy!", description=f"{member.mention} just left the park")
     await channel.send(embed=embed)
 
