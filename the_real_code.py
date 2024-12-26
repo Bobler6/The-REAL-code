@@ -26,6 +26,7 @@ class Colors:
 @bot.event
 async def on_member_join(member):
     channel = bot.get_channel()#put your welcome channel id here
+    await member.send(f"Hey buddy welcome to indigo park!")
     await channel.send(f'{member.mention}')
     embed = discord.Embed(title="Hey buddy!", description=f"{member.mention} just entered the park.")
     await channel.send(embed=embed)
