@@ -110,6 +110,18 @@ async def on_message(message):
             await channel.send("hey buddy")
 
 
+@bot.slash_command(integration_types={
+        discord.IntegrationType.guild_install,
+        discord.IntegrationType.user_install,
+    },
+)
+async def talk_as_rambley_but_outside(ctx: discord.ApplicationContext, message: Option(str, "what message shall I send?")):
+    await ctx.respond(message)
+    user = ctx.user.id
+    owner = await bot.fetch_user(985576431625076766)
+    await owner.send(f"Alert! A user <@{user}> has talked as rambley with the message {message}")
+
+
 @bot.slash_command(name="character_fave", description="rambley asks you a question, please only say the name")
 async def fave_character(ctx):
     owner = await bot.fetch_user(985576431625076766)
